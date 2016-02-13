@@ -1,4 +1,4 @@
-FROM hivesolutions/alpine-dev:latest
+FROM hivesolutions/alpine_dev:latest
 MAINTAINER Hive Solutions
 
 EXPOSE 8080
