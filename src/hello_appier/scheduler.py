@@ -11,5 +11,5 @@ class Scheduler(appier.Scheduler):
 
     def tick(self):
         appier.Scheduler.tick(self)
-        for _index in self.requests:
+        for _index in range(self.requests):
             appier.get("https://httpbin.org/image")
