@@ -12,8 +12,8 @@ class Scheduler(appier.Scheduler):
 
     def tick(self):
         appier.Scheduler.tick(self)
-        self.logger.debug("Running remote retrieval process ...")
+        self.logger.info("Running remote retrieval process ...")
         for _index in range(self.requests):
             result = appier.get("https://httpbin.org/image")
             self.bytes += len(result)
-        self.logger.debug("Current byte count is %d bytes" % self.bytes)
+        self.logger.info("Current byte count is %d bytes" % self.bytes)
