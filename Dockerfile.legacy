@@ -14,6 +14,6 @@ ADD requirements.txt /
 ADD extra.txt /
 ADD src /src
 
-RUN pip install -r /requirements.txt && pip install -r /extra.txt && pip install --upgrade netius
+RUN pip install -r /requirements.txt && pip install -r /extra.txt && pip install legacy.txt && pip install --upgrade netius
 
 CMD ["/usr/bin/python", "/src/hello_appier/main.py"]

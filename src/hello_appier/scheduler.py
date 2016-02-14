@@ -10,6 +10,9 @@ import appier
 try: import guppy
 except: guppy = None
 
+try: import objgraph
+except: objgraph = None
+
 try: import psutil
 except: psutil = None
 
