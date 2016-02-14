@@ -49,5 +49,7 @@ class Scheduler(appier.Scheduler):
         if psutil:
             process = psutil.Process(pid)
             print(process.open_files())
+            print(process.connections())
+            print(process.num_fds())
             print(process.memory_info_ex())
             print(process.memory_maps())
