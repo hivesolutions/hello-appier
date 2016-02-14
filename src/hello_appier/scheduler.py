@@ -48,8 +48,8 @@ class Scheduler(appier.Scheduler):
             print(self.heap.heap())
         if psutil:
             process = psutil.Process(pid)
-            print(process.open_files())
-            print(process.connections())
-            print(process.num_fds())
-            print(process.memory_info_ex())
-            print(process.memory_maps())
+            if hasattr(process, "open_files"): print(process.open_files())
+            if hasattr(process, "connections"): print(process.connections())
+            if hasattr(process, "num_fds"): print(process.num_fds())
+            if hasattr(process, "memory_info_ex"): print(process.memory_info_ex())
+            if hasattr(process, "memory_maps"): print(process.memory_maps())
