@@ -23,6 +23,7 @@ class Scheduler(appier.Scheduler):
         self.requests = appier.conf("HELLO_REQUESTS", requests, cast = int)
         self.asset_url = appier.conf("HELLO_ASSET", "https://httpbin.org/image")
         self.leak = appier.conf("HELLO_LEAK", False, cast = bool)
+        self.gc = appier.conf("HELLO_GC", False, cast = bool)
         self.heap = None
         self.bytes = 0
 
@@ -41,7 +42,7 @@ class Scheduler(appier.Scheduler):
     def _init_leak(self):
         if not self.leak: return
         if self.heap: return
-        gc.set_debug(gc.DEBUG_LEAK)
+        if self.gc: gc.set_debug(gc.DEBUG_LEAK)
         if guppy:
             self.heap = guppy.hpy()
             self.heap.setrelheap()
