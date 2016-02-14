@@ -27,7 +27,7 @@ class Scheduler(appier.Scheduler):
             self.bytes += len(result)
             del result
         self.logger.info("Current byte count is %d bytes" % self.bytes)
-        if self.leka:
+        if self.leak:
             state = self.heap.heap()
             print("%d active threads" % threading.activeCount())
             print(state)
