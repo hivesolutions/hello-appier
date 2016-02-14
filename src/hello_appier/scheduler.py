@@ -38,6 +38,7 @@ class Scheduler(appier.Scheduler):
     def _init_leak(self):
         if not self.leak: return
         if self.heap: return
+        gc.set_debug(gc.DEBUG_LEAK)
         if guppy:
             self.heap = guppy.hpy()
             self.heap.setrelheap()
