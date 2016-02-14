@@ -18,13 +18,13 @@ class Scheduler(appier.Scheduler):
     def tick(self):
         appier.Scheduler.tick(self)
         if self.guppy and not self.heap:
-            heap = guppy.hpy()
-            heap.setrelheap()
+            self.heap = guppy.hpy()
+            self.heap.setrelheap()
         self.logger.info("Running remote retrieval process ...")
         for _index in range(self.requests):
             result = appier.get(self.asset_url)
             self.bytes += len(result)
         self.logger.info("Current byte count is %d bytes" % self.bytes)
         if self.guppy:
-            state = heap.heap()
+            state = self.heap.heap()
             print(state)
