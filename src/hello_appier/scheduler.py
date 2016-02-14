@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import gc
 import threading
 
 import appier
@@ -31,6 +32,7 @@ class Scheduler(appier.Scheduler):
             self.bytes += len(result)
             del result
         self.logger.info("Current byte count is %d bytes" % self.bytes)
+        self._run_gc()
         self._status_leak()
 
     def _init_leak(self):
@@ -53,3 +55,7 @@ class Scheduler(appier.Scheduler):
             if hasattr(process, "num_fds"): print(process.num_fds())
             if hasattr(process, "memory_info_ex"): print(process.memory_info_ex())
             if hasattr(process, "memory_maps"): print(process.memory_maps())
+
+    def _run_gc(self):
+        if not self.leak: return
+        gc.collect()
