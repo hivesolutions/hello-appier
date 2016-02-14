@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import guppy
+import threading
 
 import appier
 
@@ -11,20 +12,22 @@ class Scheduler(appier.Scheduler):
         appier.Scheduler.__init__(self, owner, timeout = timeout, *args, **kwargs)
         self.requests = appier.conf("HELLO_REQUESTS", requests, cast = int)
         self.asset_url = appier.conf("HELLO_ASSET", "https://httpbin.org/image")
-        self.guppy = appier.conf("HELLO_GUPPY", False, cast = bool)
+        self.leak = appier.conf("HELLO_LEAK", False, cast = bool)
         self.heap = None
         self.bytes = 0
 
     def tick(self):
         appier.Scheduler.tick(self)
-        if self.guppy and not self.heap:
+        if self.leak and not self.heap:
             self.heap = guppy.hpy()
             self.heap.setrelheap()
         self.logger.info("Running remote retrieval process ...")
         for _index in range(self.requests):
             result = appier.get(self.asset_url)
             self.bytes += len(result)
+            del result
         self.logger.info("Current byte count is %d bytes" % self.bytes)
-        if self.guppy:
+        if self.leka:
             state = self.heap.heap()
+            print("%d active threads" % threading.activeCount())
             print(state)
