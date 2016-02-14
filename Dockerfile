@@ -16,4 +16,4 @@ ADD src /src
 
 RUN pip install -r /requirements.txt && pip install -r /extra.txt && pip install --upgrade netius
 
-CMD ["/usr/bin/python", "/src/hello_appier/main.py"]
+CMD ["/usr/bin/python3", "/src/hello_appier/main.py"]
