@@ -60,7 +60,7 @@ class Scheduler(appier.Scheduler):
             if hasattr(process, "num_fds"): print(process.num_fds())
             if hasattr(process, "memory_info_ex"): print(process.memory_info_ex())
             if hasattr(process, "memory_maps"): print(process.memory_maps())
-        if objgraph: 
+        if objgraph:
             print("%d objects leaking" % len(objgraph.get_leaking_objects()))
 
     def _run_gc(self):
