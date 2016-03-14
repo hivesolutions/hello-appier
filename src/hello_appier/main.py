@@ -7,10 +7,11 @@ from hello_appier import scheduler
 
 class HelloApp(appier.WebApp):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         appier.WebApp.__init__(
             self,
-            name = "hello"
+            name = "hello",
+            *args, **kwargs
         )
         self.scheduler = scheduler.Scheduler(self)
 
