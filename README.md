@@ -1,3 +1,11 @@
 # Hello Appier
 
 Simple hello world application for [Appier](http://appier.hive.pt).
+
+## Configuration
+
+* `HELLO_REQUESTS` (`int`) - Number of HTTP client requests to be performed as part of the initial scheduler
+* `HELLO_ASSET` (`str`) - The HTTP URL that is going to be used for the initial client testing (defaults to `https://httpbin.org/image`)
+* `HELLO_LEAK` (`bool`) - If HTTP client memory leaking metrics should be gathered (default to `False`)
+* `HELLO_GC` (`bool`) - If a garbage collection operation should be performed after execution of the HTTP client operations
+(defaults to `False`) 
