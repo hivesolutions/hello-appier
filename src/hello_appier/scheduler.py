@@ -18,10 +18,20 @@ except: psutil = None
 
 class Scheduler(appier.Scheduler):
 
-    def __init__(self, owner, timeout = 90.0, requests = 100, *args, **kwargs):
+    def __init__(
+        self,
+        owner,
+        timeout = 90.0,
+        enabled = True,
+        requests = 100,
+        asset = "https://httpbin.org/image",
+        *args,
+        **kwargs
+    ):
         appier.Scheduler.__init__(self, owner, timeout = timeout, *args, **kwargs)
+        self.enabled = appier.conf("HELLO_ENABLED", enabled, cast = bool)
         self.requests = appier.conf("HELLO_REQUESTS", requests, cast = int)
-        self.asset_url = appier.conf("HELLO_ASSET", "https://httpbin.org/image")
+        self.asset_url = appier.conf("HELLO_ASSET", asset)
         self.leak = appier.conf("HELLO_LEAK", False, cast = bool)
         self.gc = appier.conf("HELLO_GC", False, cast = bool)
         self.heap = None
@@ -29,6 +39,7 @@ class Scheduler(appier.Scheduler):
 
     def tick(self):
         appier.Scheduler.tick(self)
+        if not self.enabled: return
         self._init_leak()
         self.logger.info("Running remote retrieval process ...")
         for _index in range(self.requests):
