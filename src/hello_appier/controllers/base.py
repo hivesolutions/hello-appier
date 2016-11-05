@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
+
 import appier
 
 class BaseController(appier.Controller):
@@ -15,3 +17,7 @@ class BaseController(appier.Controller):
     @appier.route("/headers", "GET", json = True)
     def headers(self):
         return self.request.in_headers
+
+    @appier.route("/environ", "GET", json = True)
+    def environ(self):
+        return dict(os.environ)
