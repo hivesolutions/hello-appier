@@ -9,4 +9,4 @@ Simple hello world application for [Appier](http://appier.hive.pt).
 * `HELLO_ASSET` (`str`) - The HTTP URL that is going to be used for the initial client testing (defaults to `https://httpbin.org/image`)
 * `HELLO_LEAK` (`bool`) - If HTTP client memory leaking metrics should be gathered (default to `False`)
 * `HELLO_GC` (`bool`) - If a garbage collection operation should be performed after execution of the HTTP client operations
-(defaults to `False`) 
+(defaults to `False`)

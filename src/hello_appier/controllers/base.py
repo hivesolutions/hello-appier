@@ -16,8 +16,14 @@ class BaseController(appier.Controller):
 
     @appier.route("/headers", "GET", json = True)
     def headers(self):
-        return self.request.in_headers
+        return self.json(
+            self.request.in_headers,
+            sort_keys = True
+        )
 
     @appier.route("/environ", "GET", json = True)
     def environ(self):
-        return dict(os.environ)
+        return self.json(
+            dict(os.environ),
+            sort_keys = True
+        )
