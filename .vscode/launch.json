@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "name": "Python",
+        "type": "python",
+        "request": "launch",
+        "pythonPath": "python",
+        "program": "${workspaceRoot}/src/hello_appier/main.py",
+        "debugOptions": [
+            "WaitOnAbnormalExit",
+            "WaitOnNormalExit",
+            "RedirectOutput"
+        ],
+        "env": {
+            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}"
+        }
+    }, {
+        "name": "Python3",
+        "type": "python",
+        "request": "launch",
+        "pythonPath": "python3",
+        "program": "${workspaceRoot}/src/hello_appier/main.py",
+        "debugOptions": [
+            "WaitOnAbnormalExit",
+            "WaitOnNormalExit",
+            "RedirectOutput"
+        ],
+        "env": {
+            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}",
+            "OMNI_BOT_ENABLED": "0"
+        }
+    }]
+}
