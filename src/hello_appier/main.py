@@ -22,3 +22,5 @@ class HelloApp(appier.WebApp):
 if __name__ == "__main__":
     app = HelloApp()
     app.serve()
+else:
+    __path__ = []
