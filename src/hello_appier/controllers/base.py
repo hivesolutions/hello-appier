@@ -27,3 +27,12 @@ class BaseController(appier.Controller):
             dict(os.environ),
             sort_keys = True
         )
+
+    @appier.route("/geo", "GET", json = True)
+    def geo(self):
+        address = self.request.get_address()
+        result = appier.GeoResolver.resolve(address)
+        return self.json(
+            result,
+            sort_keys = True
+        )
