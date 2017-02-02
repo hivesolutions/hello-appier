@@ -12,7 +12,8 @@
             "RedirectOutput"
         ],
         "env": {
-            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}"
+            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}",
+            "HELLO_ENABLED": "0"
         }
     }, {
         "name": "Python3",
@@ -27,7 +28,7 @@
         ],
         "env": {
             "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}",
-            "OMNI_BOT_ENABLED": "0"
+            "HELLO_ENABLED": "0"
         }
     }]
 }
