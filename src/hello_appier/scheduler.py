@@ -8,13 +8,13 @@ import threading
 import appier
 
 try: import guppy
-except: guppy = None
+except ImportError: guppy = None
 
 try: import objgraph
-except: objgraph = None
+except ImportError: objgraph = None
 
 try: import psutil
-except: psutil = None
+except ImportError: psutil = None
 
 class Scheduler(appier.Scheduler):
 
