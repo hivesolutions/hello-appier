@@ -45,3 +45,15 @@ class BaseController(appier.Controller):
             result,
             sort_keys = True
         )
+
+    @appier.route("/retrieve", "GET", json = True)
+    def retrieve(self):
+        unsafe = appier.conf("UNSAFE", False, cast = False)
+        appier.verify(
+            unsafe,
+            message = "Unsafe operations are not allowed",
+            code = 401
+        )
+        url = self.field("url", mandatory = True)
+        contents = appier.get(url)
+        return contents
