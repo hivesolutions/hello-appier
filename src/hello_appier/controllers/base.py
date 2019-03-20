@@ -48,7 +48,7 @@ class BaseController(appier.Controller):
 
     @appier.route("/retrieve", "GET", json = True)
     def retrieve(self):
-        unsafe = appier.conf("UNSAFE", False, cast = False)
+        unsafe = appier.conf("HELLO_UNSAFE", False, cast = False)
         appier.verify(
             unsafe,
             message = "Unsafe operations are not allowed",
