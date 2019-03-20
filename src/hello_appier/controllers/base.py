@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import socket
 
 import appier
 
@@ -25,6 +26,14 @@ class BaseController(appier.Controller):
     def environ(self):
         return self.json(
             dict(os.environ),
+            sort_keys = True
+        )
+
+    @appier.route("/addresses", "GET", json = True)
+    def addresses(self):
+        addresses = socket.getaddrinfo(socket.gethostname(), None)
+        return self.json(
+            dict(addresses = addresses),
             sort_keys = True
         )
 
