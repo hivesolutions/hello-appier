@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>hello_appier</name>
+	<name>hello-appier</name>
 	<comment></comment>
 	<projects>
 		<project>appier</project>
-		<project>appier_extras</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
