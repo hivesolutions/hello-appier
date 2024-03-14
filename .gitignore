@@ -1,3 +1,7 @@
 *.pyc
 
 session.shelve*
+
+/.vscode/settings.json
+
+/.venv
