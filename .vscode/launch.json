@@ -2,28 +2,34 @@
     "version": "0.2.0",
     "configurations": [{
         "name": "Python",
-        "type": "python",
+        "type": "debugpy",
         "request": "launch",
+        "module": "hello_appier",
         "python": "python",
-        "program": "${workspaceRoot}/src/hello_appier/main.py",
-        "debugOptions": [
-            "RedirectOutput"
-        ],
+        "justMyCode": false,
         "env": {
-            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}",
+            "PYTHONPATH": "src",
             "HELLO_ENABLED": "0"
         }
     }, {
         "name": "Python3",
-        "type": "python",
+        "type": "debugpy",
         "request": "launch",
+        "module": "hello_appier",
         "python": "python3",
-        "program": "${workspaceRoot}/src/hello_appier/main.py",
-        "debugOptions": [
-            "RedirectOutput"
-        ],
+        "justMyCode": false,
         "env": {
-            "PYTHONPATH": "${workspaceRoot}/src:{env.PYTHONPATH}",
+            "PYTHONPATH": "src",
+            "HELLO_ENABLED": "0"
+        }
+    }, {
+        "name": "Python (venv)",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "hello_appier",
+        "justMyCode": false,
+        "env": {
+            "PYTHONPATH": "src",
             "HELLO_ENABLED": "0"
         }
     }]
